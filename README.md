@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -22,3 +23,6 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+=======
+# clothes-store
+>>>>>>> dd2083bcfc004d4bf09c71c4d2b601bfceee0b9e
