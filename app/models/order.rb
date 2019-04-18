@@ -11,4 +11,10 @@ class Order < ApplicationRecord
             product.price + n
         end
     end
+
+    def product_price_ordered
+        order_products.map do |order_product|
+            [order_product.product_id, order_product.price]
+        end
+    end
 end

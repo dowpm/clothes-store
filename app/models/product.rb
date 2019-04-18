@@ -14,4 +14,8 @@ class Product < ApplicationRecord
     def category_name
         category.name
     end
+
+    def seller_name
+        seller.full_name
+    end
 end

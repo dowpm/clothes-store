@@ -18,8 +18,8 @@ Category.create name: 'shoes'
 Category.create name: 'dresses'
 Category.create name: 'skirts'
 
-dres001 = Product.create name: 'dress001', description: '', price: 80, section: 'women', category_id: 7, user_id: 1
-shirt001 = Product.create name: 'shirt001', description: 'amazing', price: 30, section: 'men', category_id: 2, user_id: 1
+dres001 = Product.create name: 'dress001', description: '', price: 80, quantity: 20, section: 'women', category_id: 7, user_id: 1
+shirt001 = Product.create name: 'shirt001', description: 'amazing', price: 30, quantity: 10, section: 'men', category_id: 2, user_id: 1
 
 client_cart = Cart.create(user_id: 3)
 client_cart.products << shirt001
