@@ -4,6 +4,8 @@ class User < ApplicationRecord
     has_many :ordered_products, through: :orders, source: :products
     has_many :products, dependent: :destroy
 
+    has_one_attached :avatar, dependent: :destroy
+    
     has_secure_password
 
     validates :email, presence: true, uniqueness: true
