@@ -6,6 +6,8 @@ class Product < ApplicationRecord
     has_many :cart_products
     has_many :carts, through: :cart_products
 
+    has_many_attached :images, dependent: :destroy
+
     validates :name, presence: true
     validates :price, presence: true
     validates :user_id, presence: true
