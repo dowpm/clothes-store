@@ -30,13 +30,13 @@ class App extends Component {
                 <div class="row">
 
         <Route exact path="/register" component={All} />
-        <Route exact path="/products" component={Products} />
+        {/* <Route exact path="/products" component={Products} />
         <Route exact path="/404" component={NotFound} />
         <Route exact path="/orders" component={Orders} />
         <Route exact path="/order" component={Order} />
-        <Route exact path="/all" component={AllProducts} />
+        <Route exact path="/all" component={AllProducts} /> */}
         <Route exact path="/" component={Home} />
-        <Route exact path="/basket" component={Cart} />
+        {/* <Route exact path="/basket" component={Cart} /> */}
 
                 </div>
                 </div>
