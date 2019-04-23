@@ -6,13 +6,13 @@ const initialState = {
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case 'AUTHENTICATION_SUCCESS':
+        case 'LOG_IN':
         console.log('inside sigup reducer')
         console.log(action)
-        return {...state, users: action.payload}
+        return {...state, currentUser: action.payload}
 
-        case 'AUTHENTICATION_FAILURE':
-        return {}
+        case 'LOG_OUT':
+        return {...state, currentUser: {}}
 
         default:
             return state
