@@ -6,7 +6,7 @@ const BreadCrumb = ({title, category}) => {
                 {/* <!-- breadcrumb--> */}
                 <nav aria-label="breadcrumb">
                 <ol className="breadcrumb">
-                    <li className="breadcrumb-item"><a href="#">Home</a></li>
+                    <li className="breadcrumb-item"><a href="/">Home</a></li>
                     <li aria-current="page" className="breadcrumb-item active">{title}</li>
                     {category !== '' ? <li aria-current="page" className="breadcrumb-item active">{category}</li> : ''}
                     

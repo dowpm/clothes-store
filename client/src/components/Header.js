@@ -71,13 +71,13 @@ export default class NavBar extends Component {
                             </li>
                             
                             <li className="nav-item">
-                                <a href="products" className="nav-link">Men</a>
+                                <a href="/products/men" className="nav-link">Men</a>
                             </li>
                             <li className="nav-item">
-                                <a href="products" className="nav-link">Women</a>
+                                <a href="/products/women" className="nav-link">Women</a>
                             </li>
                             <li className="nav-item">
-                                <a href="products" className="nav-link">Kids</a>
+                                <a href="/products/kids" className="nav-link">Kids</a>
                             </li>
 
                             <li className="nav-item dropdown menu-large">

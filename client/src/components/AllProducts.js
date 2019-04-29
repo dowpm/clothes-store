@@ -1,26 +1,17 @@
 import React, { Component } from 'react';
-import LeftMenu from './LeftMenu'
 import product1 from '../img/product1.jpg'
 import product2 from '../img/product1_2.jpg'
+import BreadCumb from './BreadCrumb'
 
 export default class AllProducts extends Component {
     render(){
         return(
             <React.Fragment>
-            <div className="col-lg-12">
-                {/* <!-- breadcrumb--> */}
-                <nav aria-label="breadcrumb">
-                <ol className="breadcrumb">
-                    <li className="breadcrumb-item"><a href="#">Home</a></li>
-                    <li aria-current="page" className="breadcrumb-item active">Ladies</li>
-                </ol>
-                </nav>
-            </div>
+            <BreadCumb title={'products'}/>
 
             <div class="col-lg-12">
                 <div class="box">
-                    <h1>Ladies</h1>
-                    <p>In our Ladies department we offer wide selection of the best products we have found and carefully selected worldwide.</p>
+                    <h1>All Products</h1>
                 </div>
                 <div class="box info-bar">
                     <div class="row">

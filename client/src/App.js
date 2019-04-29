@@ -11,6 +11,7 @@ import All from './components/All'
 import Footer from './components/Footer'
 import NotFound from './components/NotFound'
 import Products from './containers/Products'
+import Admin from './containers/Admin'
 import Orders from './components/Orders'
 import Order from './components/Order'
 import AllProducts from './components/AllProducts'
@@ -31,11 +32,14 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/register" component={All} />
-          <Route exact path="/products" component={Products} />
+          <Route exact path="/products/men" component={Products} />
+          <Route exact path="/products/women" component={Products} />
+          <Route exact path="/products/kids" component={Products} />
           
           <Route exact path="/orders" component={Orders} />
+          <Route exact path="/admin" component={Admin} />
           <Route exact path="/order" component={Order} />
-          <Route exact path="/all" component={AllProducts} />
+          <Route exact path="/products" component={AllProducts} />
           {/* <Route exact path="/basket" component={Cart} /> */}
           <Route exact path="/404" component={NotFound} />
         </Switch>
