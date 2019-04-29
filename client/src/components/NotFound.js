@@ -3,10 +3,7 @@ import React, { Component } from 'react';
 export default class NotFound extends Component {
     render(){
         return(
-            <div id="all">
-                <div id="content">
-                    <div className="container">
-                    <div className="row">
+            
                         <div className="col-lg-12">
                         {/* // <!-- breadcrumb--> */}
                         <nav aria-label="breadcrumb">
@@ -27,10 +24,6 @@ export default class NotFound extends Component {
                             </div>
                         </div>
                         </div>
-                    </div>
-                    </div>
-                </div>
-            </div>
         )
     }
 }

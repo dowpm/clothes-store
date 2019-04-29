@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 // import logo from './logo.svg';
 import './vendor/bootstrap/css/bootstrap.min.css';
 import './vendor/font-awesome/css/font-awesome.min.css'
@@ -26,17 +26,20 @@ class App extends Component {
         <Header />
         <div id="all">
             <div id="content">
-                <div class="container">
-                <div class="row">
-
-        <Route exact path="/register" component={All} />
-        {/* <Route exact path="/products" component={Products} />
-        <Route exact path="/404" component={NotFound} />
-        <Route exact path="/orders" component={Orders} />
-        <Route exact path="/order" component={Order} />
-        <Route exact path="/all" component={AllProducts} /> */}
-        <Route exact path="/" component={Home} />
-        {/* <Route exact path="/basket" component={Cart} /> */}
+                <div className="container">
+                <div className="row">
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/register" component={All} />
+          <Route exact path="/products" component={Products} />
+          
+          <Route exact path="/orders" component={Orders} />
+          <Route exact path="/order" component={Order} />
+          <Route exact path="/all" component={AllProducts} />
+          {/* <Route exact path="/basket" component={Cart} /> */}
+        </Switch>
+        
+        <Route component={NotFound} />
 
                 </div>
                 </div>

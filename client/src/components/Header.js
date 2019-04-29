@@ -27,7 +27,7 @@ export default class NavBar extends Component {
                                 <button type="button" data-dismiss="modal" aria-label="Close" className="close"><span aria-hidden="true">×</span></button>
                             </div>
                             <div className="modal-body">
-                                <form action="customer-orders.html" method="post">
+                                <form >
                                 <div className="form-group">
                                     <input id="email-modal" type="text" placeholder="email" className="form-control" />
                                 </div>
@@ -39,7 +39,7 @@ export default class NavBar extends Component {
                                 </p>
                                 </form>
                                 <p className="text-center text-muted">Not registered yet?</p>
-                                <p className="text-center text-muted"><a href="register.html"><strong>Register now</strong></a>! It is easy and done in 1 minute and gives you access to special discounts and much more!</p>
+                                <p className="text-center text-muted"><a href="register"><strong>Register now</strong></a>! It is easy and done in 1 minute and gives you access to special discounts and much more!</p>
                             </div>
                             </div>
                         </div>
@@ -49,7 +49,7 @@ export default class NavBar extends Component {
 
                     <nav className="navbar navbar-expand-lg">
                         <div className="container">
-                        <a href="index.html" className="navbar-brand home">
+                        <a href="/" className="navbar-brand home">
                             <img src="img/logo.png" alt="Clothes Store" className="d-none d-md-inline-block" />
                             <img src="img/logo-small.png" alt="Clothes Store" className="d-inline-block d-md-none" />
                             <span className="sr-only">ClothesStore - go to homepage</span>
@@ -58,16 +58,30 @@ export default class NavBar extends Component {
                             <button type="button" data-toggle="collapse" data-target="#navigation" className="btn btn-outline-secondary navbar-toggler">
                             <span className="sr-only">Toggle navigation</span><i className="fa fa-align-justify"></i>
                             </button>
-                            <a href="basket.html" className="btn btn-outline-secondary navbar-toggler"><i className="fa fa-shopping-cart"></i></a>
+                            <a href="basket" className="btn btn-outline-secondary navbar-toggler"><i className="fa fa-shopping-cart"></i></a>
                         </div>
                         <div id="navigation" className="collapse navbar-collapse">
                             <ul className="navbar-nav mr-auto">
 
                             <li className="nav-item">
-                                <a href="#" className="nav-link active">Home</a>
+                                <a href="/" className="nav-link active">Home</a>
                             </li>
+                            <li className="nav-item">
+                                <a href="/products" className="nav-link">Products</a>
+                            </li>
+                            
+                            <li className="nav-item">
+                                <a href="products" className="nav-link">Men</a>
+                            </li>
+                            <li className="nav-item">
+                                <a href="products" className="nav-link">Women</a>
+                            </li>
+                            <li className="nav-item">
+                                <a href="products" className="nav-link">Kids</a>
+                            </li>
+
                             <li className="nav-item dropdown menu-large">
-                                <a href="#" data-toggle="dropdown" data-hover="dropdown" data-delay="200" className="dropdown-toggle nav-link">Store<b className="caret"></b></a>
+                                <a href="#" data-toggle="dropdown" data-hover="dropdown" data-delay="200" className="dropdown-toggle nav-link">Account<b className="caret"></b></a>
                                 <ul className="dropdown-menu megamenu">
                                 <li>
                                     <div className="row">
@@ -92,15 +106,6 @@ export default class NavBar extends Component {
                                     </div>
                                 </li>
                                 </ul>
-                            </li>
-                            <li className="nav-item">
-                                <a href="products" className="nav-link">Men</a>
-                            </li>
-                            <li className="nav-item">
-                                <a href="products" className="nav-link">Women</a>
-                            </li>
-                            <li className="nav-item">
-                                <a href="products" className="nav-link">Kids</a>
                             </li>
 
                             </ul>
