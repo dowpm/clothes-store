@@ -25,7 +25,7 @@ class Api::V1::ProductsController < ApplicationController
 
     def create
         product = Product.new(product_params)
-        binding.pry
+
         if product.save
             if product.images.attached?
                 render json: product.as_json.merge({
@@ -35,7 +35,7 @@ class Api::V1::ProductsController < ApplicationController
                 render json: product, status: 201
             end
         else
-            render json: product.errors, status: 500
+            render json: {error: true}, status: 500
         end
     end
 
