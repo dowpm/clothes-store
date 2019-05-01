@@ -1,4 +1,4 @@
-const host = "http://localhost:3000"
+const host = "http://localhost:3001"
 
 export const signUp = userState => {
     return (dispatch) => {
