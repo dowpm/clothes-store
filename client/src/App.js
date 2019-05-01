@@ -17,6 +17,7 @@ import Order from './components/Order'
 import AllProducts from './components/AllProducts'
 import Home from './components/Home'
 import Cart from './components/Cart'
+import { Alert } from './helpers/notifications';
 
 // import './App.css';
 
@@ -25,6 +26,7 @@ class App extends Component {
     return (
       <Router>
         <Header />
+        <Alert stack={ { limit: 3 } }/>
         <div id="all">
             <div id="content">
                 <div className="container">
@@ -32,14 +34,14 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/register" component={All} />
+          <Route exact path="/products" component={AllProducts} />
           <Route exact path="/products/men" component={Products} />
           <Route exact path="/products/women" component={Products} />
           <Route exact path="/products/kids" component={Products} />
           
           <Route exact path="/orders" component={Orders} />
-          <Route exact path="/admin" component={Admin} />
+          <Route  path="/admin" component={Admin} />
           <Route exact path="/order" component={Order} />
-          <Route exact path="/products" component={AllProducts} />
           {/* <Route exact path="/basket" component={Cart} /> */}
           <Route exact path="/404" component={NotFound} />
         </Switch>
