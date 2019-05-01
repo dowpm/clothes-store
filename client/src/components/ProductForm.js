@@ -103,7 +103,7 @@ class ProductForm extends React.Component {
                       className="form-control-file"
                       onChange={this.handleInputChange}
                       />
-                      <span className="text-danger"></span>
+                      <span className="text-danger">{errors.images}</span>
                   </div>
 
                   <div className="form-group">
