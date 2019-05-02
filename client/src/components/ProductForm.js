@@ -9,7 +9,7 @@ class ProductForm extends React.Component {
         super(props);
     
         this.state = {
-            product: props.product,
+            product: {...props.product, uploadImages: {FileList:[]}},
             errors: {},
         };
     
@@ -17,7 +17,7 @@ class ProductForm extends React.Component {
 
       componentWillReceiveProps({ product }) {
         // alert('recieves props')
-        this.setState({ product });
+        this.setState({ product: {...product, uploadImages: {FileList:[]}} });
       }
 
       handleSubmit = (e) => {
@@ -26,7 +26,7 @@ class ProductForm extends React.Component {
         const errors = validateProduct(product);
 
         if (!isEmptyObject(errors)) {
-          // this.setState({ errors });
+          this.setState({ errors });
           error("Fill required field!!")
         } else {
           const { onSubmit } = this.props;
@@ -81,6 +81,13 @@ class ProductForm extends React.Component {
         const { product } = this.state;
         const { errors } = this.state;
         const style ={marginBottom: 80}
+        const style2 ={marginBottom: 580}
+
+        const { path } = this.props;
+
+        if (!product.id && path === '/admin/products/:id/edit') return <h1 style={style2}>Product not found</h1>;
+
+        const cancelURL = `/admin/products` ;
         const title = product.id ? `Edit ${product.name} ` : 'New Product';
 
         return(
@@ -94,94 +101,97 @@ class ProductForm extends React.Component {
                   <legend className='text-center'>{title}</legend>
 
                   <div className="form-group">
-                      <label >Select images:</label>
-                      <input 
-                      type="file" 
-                      name="images"
-                      required
-                      multiple 
-                      className="form-control-file"
+                    <label >Select images:</label>
+                    <input 
+                    type="file" 
+                    name="uploadImages"
+                    // { product.id ? "": "required"}
+                    multiple 
+                    className="form-control-file"
+                    onChange={this.handleInputChange}
+                    />
+                    <span className="text-info">{product.id ? 'Select images only if needed':''}</span><br/>
+                    <span className="text-danger">{errors.uploadImages}</span>                    
+                  </div>
+
+                  <div className="form-group">
+                    <label >Product Name</label>
+                    <input  
+                    name="name" 
+                    placeholder="Product Name" 
+                    className={errors.name ? 'form-control is-invalid': 'form-control' }
+                    type="text"
+                    onChange={this.handleInputChange}
+                    value={product.name}
+                    />
+                    <span className="text-danger">{errors.name}</span>
+                  </div>
+
+                  <div className="form-group">
+                    <label >Description</label>
+                    <textarea 
+                    name="description" 
+                    placeholder="Description" 
+                    className={errors.description ? 'form-control is-invalid': 'form-control' }
+                    type="text"
+                    onChange={this.handleInputChange}
+                    value={product.description}
+                    />
+                    <span className="text-danger">{errors.description}</span>
+                  </div>
+
+                  <div className="form-group">
+                    <label >Price</label>
+                    <input 
+                    name="price" 
+                    placeholder="Price" 
+                    className={errors.price ? 'form-control is-invalid': 'form-control' }
+                    type="text"
+                    onChange={this.handleInputChange}
+                    value={product.price}
+                    />
+                    <span className="text-danger">{errors.price}</span>
+                  </div>
+
+                  <div className="form-group">
+                    <label >Section</label>
+                    <select 
+                      name="section" 
+                      className={errors.section ? 'form-control is-invalid': 'form-control' }
                       onChange={this.handleInputChange}
-                      />
-                      <span className="text-danger">{errors.images}</span>
+                      value={product.section}
+                    >
+                        <option value="" >Please select your state</option>
+                        
+                        <option >West Virginia</option>
+                        <option >Wisconsin</option>
+                        <option >Wyoming</option>
+                    </select>
+                    <span className="text-danger">{errors.section}</span>
                   </div>
 
                   <div className="form-group">
-                      <label >Product Name</label>
-                      <input  
-                      name="name" 
-                      placeholder="Product Name" 
-                      className={errors.name ? 'form-control is-invalid': 'form-control' }
-                      type="text"
+                    <label >Category</label>
+                    <select 
+                      name="category_id" 
+                      className={errors.category_id ? 'form-control is-invalid': 'form-control' }
                       onChange={this.handleInputChange}
-                      value={product.event_type}
-                      />
-                      <span className="text-danger">{errors.name}</span>
+                      value={product.category_id}
+                    >
+                        <option value="" >Please select your state</option>
+                        
+                        <option value="1">West Virginia</option>
+                        <option value="3">Wisconsin</option>
+                        <option value="2">Wyoming</option>
+                    </select>
+                    <span className="text-danger">{errors.category_id}</span>
                   </div>
 
                   <div className="form-group">
-                      <label >Description</label>
-                      <textarea 
-                      name="description" 
-                      placeholder="Description" 
-                      className={errors.description ? 'form-control is-invalid': 'form-control' }
-                      type="text"
-                      onChange={this.handleInputChange}
-                      >{product.event_type}</textarea>
-
-                      <span className="text-danger">{errors.description}</span>
-                  </div>
-
-                  <div className="form-group">
-                      <label >Price</label>
-                      <input 
-                      name="price" 
-                      placeholder="Price" 
-                      className={errors.price ? 'form-control is-invalid': 'form-control' }
-                      type="text"
-                      onChange={this.handleInputChange}
-                      value={product.event_type}
-                      />
-                      <span className="text-danger">{errors.price}</span>
-                  </div>
-
-                  <div className="form-group">
-                      <label >Section</label>
-                      <select 
-                        name="section" 
-                        className={errors.section ? 'form-control is-invalid': 'form-control' }
-                        onChange={this.handleInputChange}
-                      >
-                          <option value="" >Please select your state</option>
-                          
-                          <option >West Virginia</option>
-                          <option >Wisconsin</option>
-                          <option >Wyoming</option>
-                      </select>
-                      <span className="text-danger">{errors.section}</span>
-                  </div>
-
-                  <div className="form-group">
-                      <label >Category</label>
-                      <select 
-                        name="category_id" 
-                        className={errors.category_id ? 'form-control is-invalid': 'form-control' }
-                        onChange={this.handleInputChange}
-                      >
-                          <option value="" >Please select your state</option>
-                          
-                          <option value="1">West Virginia</option>
-                          <option value="3">Wisconsin</option>
-                          <option value="2">Wyoming</option>
-                      </select>
-                      <span className="text-danger">{errors.category_id}</span>
-                  </div>
-
-                  <div className="form-group">
-                      <label ></label>
-                      <div className="col-md-4">
-                          <button type="submit" className="btn btn-primary" >Create <span className="glyphicon glyphicon-send"></span></button>
-                      </div>
+                    <div className="col-md-4">
+                        <button type="submit" className="btn btn-primary" >{product.id? "Edit":"Create"} <span className="glyphicon glyphicon-send"></span></button>
+                        <a href={cancelURL} className="btn btn-danger" >Cancel <span className="glyphicon glyphicon-send"></span></a>                          
+                    </div>
                   </div>
 
                 </fieldset>
@@ -200,7 +210,8 @@ ProductForm.defaultProps = {
       price: '',
       section: '',
       category_id: '',
-      images: {FileList:[]},
+      images: [],
+      uploadImages: {FileList:[]},
       user_id: 1,
     },
     errors: {}
