@@ -1,7 +1,7 @@
 import {success, error} from '../../helpers/notifications'
 import {handleAjaxError} from '../../helpers/helpers'
 
-const host = "http://localhost:3001"
+const host = "http://localhost:3001/api/v1/"
 
 export const addProduct = (product) => {
     let formdata = new FormData()
@@ -19,7 +19,7 @@ export const addProduct = (product) => {
     return (dispatch) => {
         dispatch({type: 'START_SUBMITTING_DATA'})
 
-        return fetch(`${host}/api/v1/products`,{
+        return fetch(`${host}products`,{
             method: 'POST',
             body: formdata,
             })
@@ -39,4 +39,18 @@ export const addProduct = (product) => {
             })
     }
     
+}
+
+export const getProducts = () => {
+
+    return dispatch => {
+        dispatch({type: "LOADING_PRODUCTS"})
+
+        return fetch(`${host}products`)
+            .then(res => res.json())
+            .then(products => dispatch({type: "ADD_PRODUCTS", payload: products}) )
+            .catch(err => {
+                handleAjaxError(err)
+            })
+    }
 }
