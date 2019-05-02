@@ -13,6 +13,12 @@ class Product < ApplicationRecord
     validates :user_id, presence: true
     validates :category_id, presence: true
 
+    # include Rails.application.routes.url_helpers
+
+    # def images 
+    #     rails_blob_path(self.images[0], disposition: "attachment", only_path: true)
+    # end
+
     def category_name
         category.name
     end
