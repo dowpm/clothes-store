@@ -5,7 +5,7 @@ const initialState = {
 export default (state = initialState, action) => {
     switch (action.type) {
         case 'GET_PRODUCTS':
-            console.log(action)
+            // console.log(action)
             return {...state, products: action.payload}
 
         case 'ADD_PRODUCT':
