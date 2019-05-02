@@ -2,40 +2,19 @@ class Api::V1::ProductsController < ApplicationController
     before_action :set_product, only: [:show, :update]
     def index
         @products = Product.all
-        render json: @products.map {|product|
-            if product.images
-                product.as_json.merge({
-                    images: product.images.map {|img| url_for(img)}
-                })
-            else
-                product
-            end
-        }
+        render json: @products
     end
     
     def show
-        if @product.images.attached?
-            render json: @product.as_json.merge({
-                images: @product.images.map {|img| url_for(img)}
-            })
-        else
-            render json: @product
-        end
+        render json: @product
     end
 
     def update
         if(@product)
-            
             @product.images.purge if params[:images]
 
             if @product.update(product_params)
-                if @product.images.attached?
-                    render json: @product.as_json.merge({
-                        images: @product.images.map {|img| url_for(img)}
-                    })
-                else
-                    render json: @product
-                end
+                render json: @product
             end
         else
             render json: {status: 404, error: 'Product Not found'}
