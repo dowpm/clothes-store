@@ -48,7 +48,7 @@ export const getProducts = () => {
 
         return fetch(`${host}products`)
             .then(res => res.json())
-            .then(products => dispatch({type: "ADD_PRODUCTS", payload: products}) )
+            .then(products => dispatch({type: "GET_PRODUCTS", payload: products}) )
             .catch(err => {
                 handleAjaxError(err)
             })
