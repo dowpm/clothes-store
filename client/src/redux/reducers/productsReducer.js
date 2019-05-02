@@ -12,6 +12,16 @@ export default (state = initialState, action) => {
         // console.log(action.payload)
             return {...state, products: [...state.products,action.payload]}
 
+        case 'UPDATE_PRODUCT':
+        // console.log(action.payload)
+            return {...state, products: state.products.map(product => {
+                if(product.id === action.payload.id){
+                    return action.payload
+                }else{
+                    return product
+                }
+            })}
+
         default:
             return state
     }
