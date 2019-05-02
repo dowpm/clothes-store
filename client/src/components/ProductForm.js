@@ -210,7 +210,7 @@ ProductForm.defaultProps = {
       price: '',
       section: '',
       category_id: '',
-      images: [],
+      images_url: [],
       uploadImages: {FileList:[]},
       user_id: 1,
     },
