@@ -40,7 +40,7 @@ class App extends Component {
           <Route exact path="/products/kids" component={Products} />
           
           <Route exact path="/orders" component={Orders} />
-          <Route  path="/admin" component={Admin} />
+          <Route  path="/admin/products/:id?" component={Admin} />
           <Route exact path="/order" component={Order} />
           {/* <Route exact path="/basket" component={Cart} /> */}
           <Route exact path="/404" component={NotFound} />
