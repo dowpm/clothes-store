@@ -6,7 +6,7 @@ const host = "http://localhost:3001/api/v1/"
 export const addProduct = (product) => {
     let formdata = new FormData()
     // console.log(product.images[0]);
-    Array.prototype.forEach.call(product.images, (img) => {
+    Array.prototype.forEach.call(product.uploadImages, (img) => {
     formdata.append('images[]',img,img.name)
     })
     formdata.append('name',product.name)

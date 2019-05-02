@@ -4,15 +4,15 @@ export const isEmptyObject = obj => Object.keys(obj).length === 0;
 
 export const validateProduct = (product) => {
   const errors = {};
-  const type_file = product.images[0]? product.images[0].type.slice(0,5) : 'image'
-  const type_file2 = product.images[1]? product.images[1].type.slice(0,5) : 'image'
-  const type_file3 = product.images[2]? product.images[2].type.slice(0,5) : 'image'
+  const type_file = product.uploadImages[0]? product.uploadImages[0].type.slice(0,5) : 'image'
+  const type_file2 = product.uploadImages[1]? product.uploadImages[1].type.slice(0,5) : 'image'
+  const type_file3 = product.uploadImages[2]? product.uploadImages[2].type.slice(0,5) : 'image'
   
   if (type_file !== "image" || type_file2 !== "image" || type_file3 !== "image") {
-    errors.images = "Only images must be chosen";
+    errors.uploadImages = "Only images must be chosen";
   }else
-  if (product.images.length !== 3) {
-    errors.images = "Only three images must be chosen";
+  if (product.uploadImages.length !== 3) {
+    errors.uploadImages = "Only three images must be chosen";
   }
 
   if (product.name === '') {
