@@ -1,5 +1,7 @@
-import {success, error} from '../../helpers/notifications'
+import { error} from '../../helpers/notifications'
 import {handleAjaxError} from '../../helpers/helpers'
+import swal from 'sweetalert';
+import loading from '../../img/loading.gif'
 
 const host = "http://localhost:3001/api/v1/"
 
@@ -34,11 +36,12 @@ export const addProduct = (product) => {
     formdata.append('description', product.description)
     formdata.append('price', product.price)
     formdata.append('section', product.section)
-    formdata.append('category_id', product.category_id)
-    formdata.append('user_id', product.user_id)
+    formdata.append('category_name', product.category_name)
+    // formdata.append('user_id', product.user_id)
     
     return (dispatch) => {
         dispatch({type: 'START_SUBMITTING_DATA'})
+        swal({icon: loading,});
 
         return fetch(`${host}products`,{
             method: 'POST',
@@ -52,7 +55,10 @@ export const addProduct = (product) => {
                     error('Someting params are missing!!')
                 }else{
                     dispatch({type: 'ADD_PRODUCT', payload: product})
-                    success('Product Added!');
+                    // success('Product Added!');
+                    swal(` Product ${product.name} Added!`, {
+                        icon: "success",
+                        });
                 }
             })
             .catch(err => {
@@ -74,11 +80,12 @@ export const updateProduct = (product) => {
     formdata.append('description', product.description)
     formdata.append('price', product.price)
     formdata.append('section', product.section)
-    formdata.append('category_id', product.category_id)
-    formdata.append('user_id', product.user_id)
+    formdata.append('category_name', product.category_name)
+    // formdata.append('user_id', product.user_id)
     
     return (dispatch) => {
         dispatch({type: 'START_SUBMITTING_DATA'})
+        swal({icon: loading,});
 
         return fetch(`${host}products/${product.id}`,{
             method: 'PUT',
@@ -98,11 +105,40 @@ export const updateProduct = (product) => {
                     
                 }else{
                     dispatch({type: 'UPDATE_PRODUCT', payload: product})
-                    success('Product has been updated!');
+                    // success('Product has been updated!');
+                    swal(` Product ${product.name} has been updated!`, {
+                        icon: "success",
+                        });
                 }
             })
             .catch(err => {
                 handleAjaxError(err)           
             })
+    }
+}
+
+export const sortProducts = (val) => {
+    return {type: 'SORT_PRODUCTS', payload: val}
+}
+
+export const deleteProduct = (product) => {
+    
+    return (dispatch) => {
+        dispatch({type: 'DELETE_REQUEST'})
+        // dispatch({type:'DELETE_PRODUCT', payload: product.id})
+        swal({icon: loading,});
+
+        return fetch(`${host}products/${product.id}`,{
+            method: 'DELETE'
+        })
+        .then(res => res.json())
+        .then(json => {
+            if(!json.error){
+                swal(`Poof! Product ${product.name} has been deleted!`, {
+                    icon: "success",
+                    });
+                dispatch({type:'DELETE_PRODUCT', payload: product.id})
+            }
+        })
     }
 }

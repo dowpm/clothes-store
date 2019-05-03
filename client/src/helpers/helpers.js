@@ -33,8 +33,8 @@ export const validateProduct = (product) => {
     errors.section = 'You must choose one section';
   }
 
-  if (product.category_id === '') {
-    errors.category_id = 'You must choose one category';
+  if (product.category_name === '') {
+    errors.category_name = 'You must choose one category';
   }
 
   return errors;

@@ -7,25 +7,26 @@ import './css/style.default.css'
 // import './vendor/owl.carousel/assets/owl.carousel.css'
 // import './vendor/owl.carousel/assets/owl.theme.default.css'
 import Header from './components/Header'
-import All from './components/All'
+// import All from './components/All'
 import Footer from './components/Footer'
 import NotFound from './components/NotFound'
-import Products from './containers/Products'
+// import Products from './containers/Products'
 import Admin from './containers/Admin'
-import Orders from './components/Orders'
-import Order from './components/Order'
-import AllProducts from './components/AllProducts'
+// import Orders from './components/Orders'
+// import Order from './components/Order'
+import AllProducts from './containers/AllProducts'
 import Home from './components/Home'
-import Cart from './components/Cart'
 import { Alert } from './helpers/notifications';
 
 // import './App.css';
 
 class App extends Component {
   render() {
+    // const path = window.location.pathname
+    // debugger
     return (
       <Router>
-        <Header />
+        <Header item={'path'}/>
         <Alert stack={ { limit: 3 } }/>
         <div id="all">
             <div id="content">
@@ -33,20 +34,19 @@ class App extends Component {
                 <div className="row">
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/register" component={All} />
-          <Route exact path="/products" component={AllProducts} />
+          <Route exact path="/products/:id?" component={AllProducts} />
+          <Route  path="/admin/products/:id?" component={Admin} />
+          <Route component={NotFound} />
+
+          {/* <Route exact path="/register" component={All} />
           <Route exact path="/products/men" component={Products} />
           <Route exact path="/products/women" component={Products} />
           <Route exact path="/products/kids" component={Products} />
-          
           <Route exact path="/orders" component={Orders} />
-          <Route  path="/admin/products/:id?" component={Admin} />
           <Route exact path="/order" component={Order} />
-          {/* <Route exact path="/basket" component={Cart} /> */}
-          <Route exact path="/404" component={NotFound} />
+          <Route exact path="/basket" component={Cart} />
+          <Route exact path="/404" component={NotFound} /> */}
         </Switch>
-        
-        
 
                 </div>
                 </div>

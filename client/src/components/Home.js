@@ -4,9 +4,9 @@ import mainSlider1 from './img1.jpg'
 const Home = () => {
 
     return(
-        <div class="col-md-12" style={{marginBottom: 225}}>
-        <div id="main-slider" class="owl-carousel owl-theme">
-            <div class="item"><img src={mainSlider1} alt="" class="img-fluid" /></div>
+        <div className="col-md-12" style={{marginBottom: 225}}>
+        <div id="main-slider" className="owl-carousel owl-theme">
+            <div className="item"><img src={mainSlider1} alt="" className="img-fluid" /></div>
         </div>
         {/* <!-- /#main-slider--> */}
         </div>

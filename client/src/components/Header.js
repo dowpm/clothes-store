@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link } from 'react-router-dom'
 
 const NavBar = ({item}) => {
     return(
@@ -45,13 +46,15 @@ const NavBar = ({item}) => {
                 </div> */}
                 {/* <!-- *** TOP BAR END ***--> */}
 
-                <nav className="navbar navbar-expand-lg">
+                <nav className="navbar navbar-expand-md">
                     <div className="container">
-                    <a href="/" className="navbar-brand home">
+                    {/* <a href="/" className="navbar-brand home"> */}
+                    <Link to="/" className="navbar-brand home">
                         <img src="img/logo.png" alt="Clothes Store" className="d-none d-md-inline-block" />
                         <img src="img/logo-small.png" alt="Clothes Store" className="d-inline-block d-md-none" />
                         <span className="sr-only">ClothesStore - go to homepage</span>
-                    </a>
+                    </Link>
+                    {/* </a> */}
                     <div className="navbar-buttons">
                         <button type="button" data-toggle="collapse" data-target="#navigation" className="btn btn-outline-secondary navbar-toggler">
                         <span className="sr-only">Toggle navigation</span><i className="fa fa-align-justify"></i>
@@ -62,10 +65,12 @@ const NavBar = ({item}) => {
                         <ul className="navbar-nav mr-auto">
 
                         <li className="nav-item">
-                            <a href="/" className={item === `/`? "nav-link active": "nav-link"}>Home</a>
+                            {/* <a href="/" className={item === `/`? "nav-link active": "nav-link"}>Home</a> */}
+                            <Link to="/" className={item === '/'? "nav-link active": "nav-link"}>Home</Link>
                         </li>
                         <li className="nav-item">
-                            <a href="/products" className={item === '/products'? "nav-link active": "nav-link"}>Products</a>
+                            {/* <a href="/products" className={item === '/products'? "nav-link active": "nav-link"}>Products</a> */}
+                            <Link to="/products" className={item === '/products'? "nav-link active": "nav-link"}>Products</Link>
                         </li>
                         
                         {/* <li className="nav-item">
@@ -75,7 +80,8 @@ const NavBar = ({item}) => {
                             <a href="/products/women" className="nav-link">Women</a>
                         </li> */}
                         <li className="nav-item">
-                            <a href="/admin/products" className={item.slice(0,6) == '/admin'? "nav-link active": "nav-link"}>Manage</a>
+                            <Link to="/admin/products" className={item.slice(0,6) === '/admin'? "nav-link active": "nav-link"}>Manage</Link>
+                            {/* <a href="/admin/products" className={item.slice(0,6) === '/admin'? "nav-link active": "nav-link"}>Manage</a> */}
                         </li>
 
                         {/* <li className="nav-item dropdown menu-large">

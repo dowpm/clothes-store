@@ -6,7 +6,7 @@ export default class Footer extends Component {
         return(
             <React.Fragment>
 
-            <div id="copyright" >
+            <div id="copyright" className="fixed-bottom" style={{margingTop: 40}}>
                 <div className="container">
                 <div className="row justify-content-center">
                     <div className="col-12">

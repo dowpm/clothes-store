@@ -5,13 +5,14 @@ import ProductForm from '../components/ProductForm'
 import AdminProducts from '../components/AdminProducts'
 import UserLeftMenu from '../components/UserLeftMenu'
 import { connect } from 'react-redux'
-import { addProduct, getProducts, updateProduct } from '../redux/actions/productActions'
+import { addProduct, getProducts, updateProduct, deleteProduct } from '../redux/actions/productActions'
 import loading from '../img/loading.gif'
+import swal from 'sweetalert';
 
 class Admin extends React.Component {
 
     componentDidMount() {
-        if(this.props.products.length === 0){
+        if(this.props.size === null){
             this.props.getProducts()
         }
     }
@@ -27,28 +28,48 @@ class Admin extends React.Component {
         const { history } = this.props;
         history.push(`/admin/products`);
     }
+    
+    onDeleteProduct = (e,product) =>{
+        e.preventDefault()
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover it!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+        if (willDelete) {
+            
+            this.props.deleteProduct(product)
+        } else {
+            swal(`Product ${product.name} is safe!`);
+        }
+        });
+    }
+
     render(){
         // debugger
-        const {products, match} = this.props;
-        
-        if (products.length === 0) return <img src={loading} alt="loading"/>;
+        const {products, match, size} = this.props;
+        if (size === null) return <img src={loading} alt="loading"/>;
+        // if (products.length === 0) return <img src={loading} alt="loading"/>;
 
         const productId = match.params.id;
-        const product = products.find(p => p.id === Number(productId) && p.user_id === 1);
+        const product = products.find(p => p.id === Number(productId) );
         
         return(
             <React.Fragment>
-                <div className="col-lg-12">
+                {/* <div className="col-lg-12"> */}
                 {/* <!-- breadcrumb--> */}
-                <nav aria-label="breadcrumb">
+                {/* <nav aria-label="breadcrumb">
                     <ol className="breadcrumb">
                     <li className="breadcrumb-item"><a href="/">Home</a></li>
                     <li aria-current="page" className="breadcrumb-item">title</li>
                     </ol>
                 </nav>
-                </div>
+                </div> */}
 
-                <UserLeftMenu admin={true}/>
+                <UserLeftMenu item={match.url}/>
 
                 <Switch>
                     <PropsRoute 
@@ -70,7 +91,7 @@ class Admin extends React.Component {
                     path="/admin/products"
                     component={AdminProducts}
                     products={products}
-                    onDelete={this.deleteEvent}
+                    onDelete={this.onDeleteProduct}
                     />
                 </Switch>
             </React.Fragment>
@@ -79,6 +100,6 @@ class Admin extends React.Component {
 }
 
 export default connect(
-    state => ({products: state.products.products }),
-    {addProduct, getProducts, updateProduct}
+    state => ({products: state.products.products, size: state.products.size }),
+    {addProduct, getProducts, updateProduct, deleteProduct}
 )(Admin)

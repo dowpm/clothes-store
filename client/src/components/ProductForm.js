@@ -1,6 +1,6 @@
 import React from 'react';
 import { isEmptyObject, validateProduct } from '../helpers/helpers';
-
+import {Link } from 'react-router-dom'
 import {error} from '../helpers/notifications'
 
 
@@ -161,11 +161,11 @@ class ProductForm extends React.Component {
                       onChange={this.handleInputChange}
                       value={product.section}
                     >
-                        <option value="" >Please select your state</option>
+                        <option value="" >Please select a section</option>
                         
-                        <option >West Virginia</option>
-                        <option >Wisconsin</option>
-                        <option >Wyoming</option>
+                        <option value="Men">Men</option>
+                        <option value="Women">Women</option>
+                        <option value="Kids">Kids</option>
                     </select>
                     <span className="text-danger">{errors.section}</span>
                   </div>
@@ -173,24 +173,28 @@ class ProductForm extends React.Component {
                   <div className="form-group">
                     <label >Category</label>
                     <select 
-                      name="category_id" 
+                      name="category_name" 
                       className={errors.category_id ? 'form-control is-invalid': 'form-control' }
                       onChange={this.handleInputChange}
-                      value={product.category_id}
+                      value={product.category_name}
                     >
-                        <option value="" >Please select your state</option>
+                        <option value="" >Please select a category</option>
                         
-                        <option value="1">West Virginia</option>
-                        <option value="3">Wisconsin</option>
-                        <option value="2">Wyoming</option>
+                        <option value="t-shirts">t-shirts</option>
+                        <option value="shirts">shirts</option>
+                        <option value="jeans">jeans</option>
+                        <option value="pants">pants</option>
+                        <option value="shorts">shorts</option>
+                        <option value="shoes">shoes</option>
                     </select>
-                    <span className="text-danger">{errors.category_id}</span>
+                    <span className="text-danger">{errors.category_name}</span>
                   </div>
 
                   <div className="form-group">
                     <div className="col-md-4">
                         <button type="submit" className="btn btn-primary" >{product.id? "Edit":"Create"} <span className="glyphicon glyphicon-send"></span></button>
-                        <a href={cancelURL} className="btn btn-danger" >Cancel <span className="glyphicon glyphicon-send"></span></a>                          
+                        {/* <a href={cancelURL} className="btn btn-danger" >Cancel <span className="glyphicon glyphicon-send"></span></a> */}
+                        <Link to={cancelURL} className="btn btn-danger" >Cancel <span className="glyphicon glyphicon-send"></span></Link>  
                     </div>
                   </div>
 
@@ -209,10 +213,10 @@ ProductForm.defaultProps = {
       description: '',
       price: '',
       section: '',
-      category_id: '',
+      category_name: '',
       images_url: [],
       uploadImages: {FileList:[]},
-      user_id: 1,
+      // user_id: 1,
     },
     errors: {}
 };

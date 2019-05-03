@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link } from 'react-router-dom'
 
 const BreadCrumb = ({title, category}) => {
 
@@ -6,7 +7,7 @@ const BreadCrumb = ({title, category}) => {
                 {/* <!-- breadcrumb--> */}
                 <nav aria-label="breadcrumb">
                 <ol className="breadcrumb">
-                    <li className="breadcrumb-item"><a href="/">Home</a></li>
+                    <li className="breadcrumb-item"><Link to="/">Home</Link></li>
                     <li aria-current="page" className="breadcrumb-item active">{title}</li>
                     {category !== '' ? <li aria-current="page" className="breadcrumb-item active">{category}</li> : ''}
                     
