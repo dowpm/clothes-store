@@ -49,25 +49,15 @@ class Admin extends React.Component {
     }
 
     render(){
-        // debugger
+        
         const {products, match, size} = this.props;
         if (size === null) return <img src={loading} alt="loading"/>;
-        // if (products.length === 0) return <img src={loading} alt="loading"/>;
 
         const productId = match.params.id;
         const product = products.find(p => p.id === Number(productId) );
         
         return(
             <React.Fragment>
-                {/* <div className="col-lg-12"> */}
-                {/* <!-- breadcrumb--> */}
-                {/* <nav aria-label="breadcrumb">
-                    <ol className="breadcrumb">
-                    <li className="breadcrumb-item"><a href="/">Home</a></li>
-                    <li aria-current="page" className="breadcrumb-item">title</li>
-                    </ol>
-                </nav>
-                </div> */}
 
                 <UserLeftMenu item={match.url}/>
 
