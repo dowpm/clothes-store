@@ -1,5 +1,5 @@
 class Api::V1::ProductsController < ApplicationController
-    before_action :set_product, only: [:show, :update]
+    before_action :set_product, only: [:show, :update, :destroy]
     def index
         @products = Product.all
         render json: @products
@@ -15,6 +15,8 @@ class Api::V1::ProductsController < ApplicationController
 
             if @product.update(product_params)
                 render json: @product
+            else
+                render json: {status: 404, error: @product.errors}
             end
         else
             render json: {status: 404, error: 'Product Not found'}
@@ -25,15 +27,18 @@ class Api::V1::ProductsController < ApplicationController
         product = Product.new(product_params)
 
         if product.save
-            if product.images.attached?
-                render json: product.as_json.merge({
-                    images: product.images.map {|img| url_for(img)}
-                }), status: 201
-            else
-                render json: product, status: 201
-            end
+            render json: product, status: 201
         else
             render json: {error: true}, status: 500
+        end
+    end
+
+    def destroy
+        if @product
+            @product.delete
+            render json: {error: false}, status: 200
+        else
+            render json: {error: true, error_msg: 'Product doesn\'t exist'}, status: 404
         end
     end
 
@@ -46,8 +51,8 @@ class Api::V1::ProductsController < ApplicationController
     def product_params
         params.permit(
             :name, :description, :quantity,
-            :section,:category_id,
-            :user_id, :price, images: []
+            :section,:category_name,
+            :price, images: []
         )
     end
 end

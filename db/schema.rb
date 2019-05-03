@@ -73,8 +73,7 @@ ActiveRecord::Schema.define(version: 2019_04_22_174925) do
     t.float "price"
     t.integer "quantity"
     t.string "section"
-    t.integer "category_id"
-    t.integer "user_id"
+    t.string "category_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
