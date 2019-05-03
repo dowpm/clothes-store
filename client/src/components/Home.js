@@ -1,16 +1,16 @@
-import React, { Component } from 'react'
-import mainSlider1 from './main-slider1.jpg'
+import React from 'react'
+import mainSlider1 from './img1.jpg'
 
-export default class Home extends Component{
+const Home = () => {
 
-    render(){
-        return(
-            <div class="col-md-12">
-            <div id="main-slider" class="owl-carousel owl-theme">
-                <div class="item"><img src={mainSlider1} alt="" class="img-fluid" /></div>
-            </div>
-            {/* <!-- /#main-slider--> */}
-            </div>
-        )
-    }
+    return(
+        <div class="col-md-12" style={{marginBottom: 225}}>
+        <div id="main-slider" class="owl-carousel owl-theme">
+            <div class="item"><img src={mainSlider1} alt="" class="img-fluid" /></div>
+        </div>
+        {/* <!-- /#main-slider--> */}
+        </div>
+    )
 }
+
+export default Home
