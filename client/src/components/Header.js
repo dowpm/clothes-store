@@ -62,10 +62,10 @@ const NavBar = ({item}) => {
                         <ul className="navbar-nav mr-auto">
 
                         <li className="nav-item">
-                            <a href="/" className={item === 'home'? "nav-link active": "nav-link"}>Home</a>
+                            <a href="/" className={item === `/`? "nav-link active": "nav-link"}>Home</a>
                         </li>
                         <li className="nav-item">
-                            <a href="/products" className={item === 'products'? "nav-link active": "nav-link"}>Products</a>
+                            <a href="/products" className={item === '/products'? "nav-link active": "nav-link"}>Products</a>
                         </li>
                         
                         {/* <li className="nav-item">
@@ -75,7 +75,7 @@ const NavBar = ({item}) => {
                             <a href="/products/women" className="nav-link">Women</a>
                         </li> */}
                         <li className="nav-item">
-                            <a href="/admin/products" className={item === 'manage'? "nav-link active": "nav-link"}>Manage</a>
+                            <a href="/admin/products" className={item.slice(0,6) == '/admin'? "nav-link active": "nav-link"}>Manage</a>
                         </li>
 
                         {/* <li className="nav-item dropdown menu-large">
