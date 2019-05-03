@@ -10,11 +10,14 @@ This is a basic web app buid with react as front end and rubu on rails in the ba
 Clone this repo, and type the commands below to start the front end 
 
     $ cd clothes-store/client
+    $ npm install
     $ npm start
 
 Open a new terminal and run the rails web server using port 3001
 
     $ cd clothes-store
+    $ bundle
+    $ rails db:migrate
     $ rails s -p 3001
 
 Mavigate to localhost:3000 inside of the web browser.
