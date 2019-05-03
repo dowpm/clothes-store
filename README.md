@@ -1,24 +1,30 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Welcome to the Clothes Store Application.
 
-Things you may want to cover:
+This is a basic web app buid with react as front end and rubu on rails in the back end.The application allow you to add, edit, show and delete a product.
 
-* Ruby version
 
-* System dependencies
+## Installation
 
-* Configuration
+Clone this repo, and type the commands below to start the front end 
 
-* Database creation
+    $ cd clothes-store/client
+    $ npm start
 
-* Database initialization
+Open a new terminal and run the rails web server using port 3001
 
-* How to run the test suite
+    $ cd clothes-store
+    $ rails s -p 3001
 
-* Services (job queues, cache servers, search engines, etc.)
+Mavigate to localhost:3000 inside of the web browser.
 
-* Deployment instructions
+    
+## Contributing
 
-* ...
+Bug reports and pull requests are welcome on GitHub at https://github.com/dowpm/cool-library. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
+
+## License
+
+This app is available as open source under the terms of the MIT License.
+
