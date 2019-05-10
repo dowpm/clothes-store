@@ -20,7 +20,9 @@ Open a new terminal and run the rails web server using port 3001
     $ rails db:migrate
     $ rails s -p 3001
 
-Mavigate to localhost:3000 inside of the web browser.
+OR as I use foreman you can just type this commande while inside the root of the app
+
+    $ rake start
 
     
 ## Contributing
