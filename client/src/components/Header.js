@@ -23,46 +23,7 @@ const NavBar = ({item, user, logout}) => {
                 </div>
                 </div>
                 </div>
-                {/* <div id="top">
-                    <div className="container">
-                    <div className="row">
-                        
-                        <div className="col-lg-12 text-center text-lg-right">
-                        <ul className="menu list-inline mb-0">
-                            <li className="list-inline-item"><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></li>
-                            <li className="list-inline-item"><a href="register">Register</a></li>
-                        </ul>
-                        </div>
-                    </div>
-                    </div>
-                    
-                    <div id="login-modal" tabIndex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true" className="modal fade">
-                    <div className="modal-dialog modal-sm">
-                        <div className="modal-content">
-                        <div className="modal-header">
-                            <h5 className="modal-title">Customer login</h5>
-                            <button type="button" data-dismiss="modal" aria-label="Close" className="close"><span aria-hidden="true">×</span></button>
-                        </div>
-                        <div className="modal-body">
-                            <form >
-                            <div className="form-group">
-                                <input id="email-modal" type="text" placeholder="email" className="form-control" />
-                            </div>
-                            <div className="form-group">
-                                <input id="password-modal" type="password" placeholder="password" className="form-control" />
-                            </div>
-                            <p className="text-center">
-                                <button className="btn btn-primary"><i className="fa fa-sign-in"></i> Log in</button>
-                            </p>
-                            </form>
-                            <p className="text-center text-muted">Not registered yet?</p>
-                            <p className="text-center text-muted"><a href="register"><strong>Register now</strong></a>! It is easy and done in 1 minute and gives you access to special discounts and much more!</p>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                </div> */}
-                {/* <!-- *** TOP BAR END ***--> */}
+                
 
                 <nav className="navbar navbar-expand-md">
                     <div className="container">
@@ -91,58 +52,19 @@ const NavBar = ({item, user, logout}) => {
                             <Link to="/products" className={item === '/products'? "nav-link active": "nav-link"}>Products</Link>
                         </li>
                         
-                        {/* <li className="nav-item">
-                            <a href="/products/men" className="nav-link">Men</a>
-                        </li>
-                        <li className="nav-item">
-                            <a href="/products/women" className="nav-link">Women</a>
-                        </li> */}
+
                         {u !== 0?
                         <li className="nav-item">
                             <Link to="/admin/products" className={item.slice(0,6) === '/admin'? "nav-link active": "nav-link"}>Manage</Link>
-                            {/* <a href="/admin/products" className={item.slice(0,6) === '/admin'? "nav-link active": "nav-link"}>Manage</a> */}
+                            
                         </li>:''
                         }
 
-                        {/* <li className="nav-item dropdown menu-large">
-                            <a href="#" data-toggle="dropdown" data-hover="dropdown" data-delay="200" className="dropdown-toggle nav-link">Account<b className="caret"></b></a>
-                            <ul className="dropdown-menu megamenu">
-                            <li>
-                                <div className="row">
-                                <div className="col-md-6 col-lg-3">
-                                    <h5>Clothing</h5>
-                                    <ul className="list-unstyled mb-3">
-                                    <li className="nav-item"><a href="category.html" className="nav-link">T-shirts</a></li>
-                                    <li className="nav-item"><a href="category.html" className="nav-link">Shirts</a></li>
-                                    <li className="nav-item"><a href="category.html" className="nav-link">Pants</a></li>
-                                    <li className="nav-item"><a href="category.html" className="nav-link">Accessories</a></li>
-                                    </ul>
-                                </div>
-                                <div className="col-md-6 col-lg-3">
-                                    <h5>Clothing</h5>
-                                    <ul className="list-unstyled mb-3">
-                                    <li className="nav-item"><a href="category.html" className="nav-link">T-shirts</a></li>
-                                    <li className="nav-item"><a href="category.html" className="nav-link">Shirts</a></li>
-                                    <li className="nav-item"><a href="category.html" className="nav-link">Pants</a></li>
-                                    <li className="nav-item"><a href="category.html" className="nav-link">Accessories</a></li>
-                                    </ul>
-                                </div>
-                                </div>
-                            </li>
-                            </ul>
-                        </li> */}
+                        
 
                         </ul>
 
-                        {/* <div className="navbar-buttons d-flex justify-content-end"> */}
-                        {/* <!-- /.nav-collapse--> */}
-                        {/* <div id="search-not-mobile" className="navbar-collapse collapse"></div>
-                        <div id="basket-overview" className="navbar-collapse collapse d-none d-lg-block">
-                            <a href="basket" className="btn btn-primary navbar-btn">
-                            <i className="fa fa-shopping-cart"></i><span>3 items in cart</span>
-                            </a>
-                        </div>
-                        </div> */}
+                        
 
                     </div>
 
