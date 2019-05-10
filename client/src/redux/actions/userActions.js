@@ -1,7 +1,7 @@
 import { error, success} from '../../helpers/notifications'
 import {handleAjaxError} from '../../helpers/helpers'
 import swal from 'sweetalert';
-import loading from '../../img/loading.gif'
+// import loading from '../../img/loading.gif'
 
 const host = "http://localhost:3001/api/v1/"
 
