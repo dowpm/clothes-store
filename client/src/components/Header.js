@@ -1,10 +1,28 @@
 import React from 'react';
 import {Link } from 'react-router-dom'
 
-const NavBar = ({item}) => {
+const NavBar = ({item, user, logout}) => {
+    const u = Object.keys(user.currentUser).length
     return(
         <div>
             <header className="header mb-5">
+                <div id="top">
+                <div className="container">
+                <div className="row">
+                    
+                    <div className="col-lg-12 text-center text-lg-right">
+                    <ul className="menu list-inline mb-0">
+                        {/* <li className="list-inline-item"><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></li> */}
+                        {u === 0?
+                        <li className="list-inline-item"><Link to="/register">Login / Register</Link></li>
+                        :
+                        <li className="list-inline-item"><Link to="" onClick={logout}>Logout</Link></li>
+                        }
+                    </ul>
+                    </div>
+                </div>
+                </div>
+                </div>
                 {/* <div id="top">
                     <div className="container">
                     <div className="row">
@@ -79,10 +97,12 @@ const NavBar = ({item}) => {
                         <li className="nav-item">
                             <a href="/products/women" className="nav-link">Women</a>
                         </li> */}
+                        {u !== 0?
                         <li className="nav-item">
                             <Link to="/admin/products" className={item.slice(0,6) === '/admin'? "nav-link active": "nav-link"}>Manage</Link>
                             {/* <a href="/admin/products" className={item.slice(0,6) === '/admin'? "nav-link active": "nav-link"}>Manage</a> */}
-                        </li>
+                        </li>:''
+                        }
 
                         {/* <li className="nav-item dropdown menu-large">
                             <a href="#" data-toggle="dropdown" data-hover="dropdown" data-delay="200" className="dropdown-toggle nav-link">Account<b className="caret"></b></a>
