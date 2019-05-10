@@ -20,7 +20,7 @@ class App extends Component {
       <Router>
         <Header item={'path'}/>
         <Alert stack={ { limit: 3 } }/>
-        <div id="all">
+        <div id="all" style={{paddingBottom:100}}>
             <div id="content">
                 <div className="container">
                 <div className="row">
