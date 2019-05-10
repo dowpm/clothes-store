@@ -36,9 +36,9 @@ const ProductDetail = ({product}) => {
             </div>
             <div className="col-md-6">
                 <div className="box">
-                <h1 className="text-center">White Blouse Armani</h1>
+                <h1 className="text-center">{product.name}</h1>
                 <p className="goToDescription">{product.description}</p>
-                <p className="price">$124.00</p>
+                <p className="price">${product.price}.00</p>
                 
                 </div>
                 <div data-slider-id="1" className="owl-thumbs">
